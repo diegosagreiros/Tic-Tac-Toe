@@ -1,0 +1,146 @@
+*,*::after, *::before {
+  box-sizing:border-box;
+}
+
+
+body {
+  background: blue;
+  margin: 0;
+}
+
+#gameName {
+  width: 80%;
+  margin: 0 auto;
+  text-align: center;
+  max-width: 100px;
+  position:relative;
+}
+
+:root {
+  --cell-size: 100px;
+  --mark-size: calc(var(--cell-size)*.7);
+}
+
+#gameName p {
+  color: #b0f427;
+  font-weight: 700;
+}
+
+#gameName p:hover {
+  color: pink;
+}
+/*# sourceMappingURL=main.css.map */
+
+#gameBoard {
+  width: 100vw;
+  height: 100vh;
+  display: grid;
+  justify-content: center;
+  align-content: center;
+max-width: 960px;
+margin: auto;
+}
+
+.cell {
+  border: 2px solid rgb(0, 0, 0);
+  height: 100px;
+  width: 100px;
+  display:inline-flex;
+  justify-content: center;
+  align-content: center;
+  position: relative;
+
+}
+
+.cell.x,.cell.o {
+    cursor:not-allowed;
+  }
+
+  .cell.x::before,
+  .cell.x::after {
+    background-color: rgb(59, 240, 59);
+  }
+  
+  .board.x .cell:not(.x):not(.o):hover::before,
+  .board.x .cell:not(.x):not(.o):hover::after {
+    background-color: rgb(35, 111, 74);
+  }
+
+.cell.x::before,
+.cell.x::after,
+.board.x .cell:not(.x):not(.o):hover::before,
+.board.x .cell:not(.x):not(.o):hover::after
+{
+  content: '';
+  position: absolute;
+  width: calc(var(--mark-size)* .15);
+  height: var(--mark-size);
+}
+
+
+.cell.x::before,
+.board.x .cell:hover::before {
+  transform: rotate(45deg);  
+}
+
+.cell.x::after,
+.board.x .cell:hover::after {
+transform: rotate(-45deg);
+}
+
+.cell.o::before {
+  background-color: rgb(247, 121, 142);
+}
+
+.board.o .cell:not(.o):not(.x):hover::before{
+  background-color:red;
+  opacity: 40%;
+}
+.cell.o::before,
+.board.o .cell:not(.o):not(.x):hover::before {
+  content:'';
+border-radius:50%;
+position: absolute;
+width: calc(var(--mark-size));
+height: var(--mark-size);
+
+}
+
+  #row1:hover{ 
+    background-color:rgb(88, 244, 249);
+    border: 1px solid rgb(0, 0, 0);
+    height: 50px;
+    width: 50px;
+    opacity: 80%;
+    border-radius: 50%;
+  }
+
+  #row2:hover{ 
+    background-color:rgb(105, 30, 255);
+    border: 1px solid rgb(255, 255, 255);
+    height: 50px;
+    width: 50px; 
+    opacity: 80%; }
+
+  #row3:hover{ 
+    background-color:rgb(255, 187, 0);
+    border: 1px solid rgb(0, 255, 102);
+    height: 50px;
+    width: 50px;
+    opacity: 80%;
+  }
+
+.show {
+    align-items: center;
+    position:fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+ font-size: 60px;
+ background-color: black;
+ opacity: 80%;
+ color: white;
+display: flex;
+justify-content: center;
+  }
